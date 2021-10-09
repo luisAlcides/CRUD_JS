@@ -74,7 +74,16 @@ const aplicacion = new function() {
     };
 
     this.actualizar = function(){
-        console.log("Actualizar");
+        let datosEnviar = {id:this.idEditar.value, nombre:this.nombreEditar.value, correo:this.correoEditar.value};
+
+        fetch(url+"?actualizar=1", {method:"POST", body:JSON.stringify(datosEnviar)})
+        .then((respuesta) => respuesta.json())
+        .then((datosRespuesta) => {
+            console.log("Datos Actualizados")
+            this.leer();
+            modal.hide();
+        })
+        .catch(console.log); 
     }
 }
 
