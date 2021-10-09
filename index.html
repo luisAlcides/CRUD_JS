@@ -18,7 +18,7 @@
                         Empleados
                     </div>
                     <div class="card-body">
-                        <form action="javascript:void(0);" method="post">
+                        <form action="javascript:void(0);" method="post" onsubmit="aplicacion.agregar()">
                             <div class="mb-3">
                               <label for="" class="form-label">Nombre</label>
                               <input type="text"
@@ -30,7 +30,7 @@
                               <input type="email" class="form-control" name="correo" id="correo" aria-describedby="emailHelpId" placeholder="email@email.com">
                             </div>
 
-                            <button type="button" class="btn btn-success">Agregar Empleado</button>
+                            <button type="submit" class="btn btn-success">Agregar Empleado</button>
                         </form>
                     </div>
                    
