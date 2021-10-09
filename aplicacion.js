@@ -18,7 +18,7 @@ const aplicacion = new function() {
                     datos += "<td>"+empleado.id+"</td>"
                     datos += "<td>"+empleado.nombre+"</td>"
                     datos += "<td>"+empleado.correo+"</td>"
-                    datos += "<td>"+empleado.id+"</td>"
+                    datos += '<td><div class="btn-group" role="group" aria-label=""><button type="button" class="btn btn-info">Editar</button><button type="button" class="btn btn-danger" onclick="aplicacion.borrar('+empleado.id+')">Eliminar</button></div></td>'
                     datos += "</tr>"
                 }
             );
@@ -41,7 +41,15 @@ const aplicacion = new function() {
         })
         .catch(console.log);
 
-    }
+    };
+
+    this.borrar = function(id){
+        console.log(id);
+    };
+
+    this.editar = function(id){
+        console.log(id);
+    };
 
 }
 
