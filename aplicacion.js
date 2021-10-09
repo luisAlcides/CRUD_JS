@@ -1,4 +1,5 @@
 const url ="http://localhost/CRUD_JS/";
+const modal = new bootstrap.Modal(document.getElementById("modelId"),{keyboard:false});
 
 const aplicacion = new function() {
     this.nombre= document.getElementById('nombre');
@@ -18,7 +19,7 @@ const aplicacion = new function() {
                     datos += "<td>"+empleado.id+"</td>"
                     datos += "<td>"+empleado.nombre+"</td>"
                     datos += "<td>"+empleado.correo+"</td>"
-                    datos += '<td><div class="btn-group" role="group" aria-label=""><button type="button" class="btn btn-info">Editar</button><button type="button" class="btn btn-danger" onclick="aplicacion.borrar('+empleado.id+')">Eliminar</button></div></td>'
+                    datos += '<td><div class="btn-group" role="group" aria-label=""><button type="button" class="btn btn-info" onclick="aplicacion.editar('+empleado.id+')">Editar</button><button type="button" class="btn btn-danger" onclick="aplicacion.borrar('+empleado.id+')">Eliminar</button></div></td>'
                     datos += "</tr>"
                 }
             );
@@ -55,6 +56,8 @@ const aplicacion = new function() {
 
     this.editar = function(id){
         console.log(id);
+
+        modal.show();
     };
 
 }
