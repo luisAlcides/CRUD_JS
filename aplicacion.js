@@ -44,7 +44,13 @@ const aplicacion = new function() {
     };
 
     this.borrar = function(id){
-        console.log(id);
+
+        fetch(url+"?borrar="+id)
+        .then((respuesta) => respuesta.json())
+        .then((datosRespuesta) => {
+            this.leer();
+        })
+        .catch(console.log);    
     };
 
     this.editar = function(id){
