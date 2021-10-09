@@ -6,16 +6,27 @@ const aplicacion = new function() {
     this.empleados = document.getElementById('empleados');
 
     this.leer = function(){
-        const datos='<tr><td>1</td><td>Juan</td><td>jua@gmail.com</td><td>Editar | Borrar</td></tr>';
-        
+        //const datos='<tr><td>1</td><td>Juan</td><td>jua@gmail.com</td><td>Editar | Borrar</td></tr>';
+        let datos;
         fetch(url)
         .then(r=>r.json())
         .then((respuesta) => {
             console.log(respuesta);
+            respuesta.map(
+                function(empleado, index, array) {
+                    datos += "<tr>"
+                    datos += "<td>"+empleado.id+"</td>"
+                    datos += "<td>"+empleado.nombre+"</td>"
+                    datos += "<td>"+empleado.correo+"</td>"
+                    datos += "<td>"+empleado.id+"</td>"
+                    datos += "</tr>"
+                }
+            );
+        return this.empleados.innerHTML=datos;
+
         })
         .catch(console.log);
 
-        return this.empleados.innerHTML=datos;
     }
     this.agregar = function(){
         console.log(nombre.value);
