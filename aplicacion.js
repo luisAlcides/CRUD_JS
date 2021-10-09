@@ -60,6 +60,9 @@ const aplicacion = new function() {
         modal.show();
     };
 
+    this.actualizar = function(){
+        console.log("Actualizar");
+    }
 }
 
 aplicacion.leer();
