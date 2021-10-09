@@ -32,6 +32,15 @@ const aplicacion = new function() {
         console.log(nombre.value);
         console.log(correo.value);
 
+        let datosEnviar= {nombre:this.nombre.value, correo:this.correo.value}
+        fetch(url+"?insertar=1",{method:"POST", body:JSON.stringify(datosEnviar)})
+        .then((respuesta) => respuesta.json())
+        .then((datosRespuesta) => {
+            console.log("Datos insertados");
+            this.leer();
+        })
+        .catch(console.log);
+
     }
 
 }
