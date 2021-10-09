@@ -2,6 +2,10 @@ const url ="http://localhost/CRUD_JS/";
 const modal = new bootstrap.Modal(document.getElementById("modelId"),{keyboard:false});
 
 const aplicacion = new function() {
+    this.idEditar= document.getElementById('idEditar');
+    this.nombreEditar= document.getElementById('nombreEditar');
+    this.correoEditar= document.getElementById('correoEditar');
+
     this.nombre= document.getElementById('nombre');
     this.correo= document.getElementById('correo');
     this.empleados = document.getElementById('empleados');
@@ -56,7 +60,16 @@ const aplicacion = new function() {
 
     this.editar = function(id){
         console.log(id);
-
+        
+        fetch(url+"?consultar="+id)
+        .then((respuesta) => respuesta.json())
+        .then((datosRespuesta) => {
+            this.idEditar.value=datosRespuesta[0]['id'];
+            this.nombreEditar.value=datosRespuesta[0]['nombre'];
+            this.correoEditar.value=datosRespuesta[0]['correo'];
+        })
+        .catch(console.log);
+        
         modal.show();
     };
 
